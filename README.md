@@ -9,10 +9,12 @@ pair of employees as santa and child.
 
 Use the package manager [npm](https://npm.org) to install SECRET SANTA.
 
+
+## Getting Started
+
 ```bash
 npm Install
 ```
-## Getting Started
 
 First, run the development server:
 

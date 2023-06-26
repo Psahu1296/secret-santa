@@ -6,8 +6,12 @@ import CSVReader from "react-csv-reader";
 import { csvGenerator, listGenerate, getError } from "@/utils/Utils";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { IEmployees, IPrevEmployee, IRefs, ISuffledEmployee } from "@/utils/Types";
-
+import {
+  IEmployees,
+  IPrevEmployee,
+  IRefs,
+  ISuffledEmployee,
+} from "@/utils/Types";
 
 export default function Home() {
   const newFileRef = useRef<HTMLInputElement>(null);
@@ -31,7 +35,6 @@ export default function Home() {
   };
   const fileChangeHandler =
     (setState: React.Dispatch<any>) => (data: any, fileInfo: any) => {
-      console.log(data, fileInfo);
       setState(data);
       setError("");
     };
@@ -65,9 +68,9 @@ export default function Home() {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      return toast.success("Downlaoded Successfully!")
+      return toast.success("Downlaoded Successfully!");
     }
-    return toast.error("Something Went Wrong!", {theme: "colored"})
+    return toast.error("Something Went Wrong!", { theme: "colored" });
   };
   useEffect(() => {}, [prevEmployee]);
 

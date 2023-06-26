@@ -29,7 +29,7 @@ export const csvGenerator = (data: any, employee: any) => {
   return csvContent;
 };
 
-export const listGenerate = (arr2: any, arr1?: any,): ISuffledEmployee[] => {
+export const listGenerate = (arr2: any, arr1?: any): ISuffledEmployee[] => {
   const remainingEmployees = arr2.slice();
 
   // Shuffle the remainingEmployees array
@@ -41,7 +41,7 @@ export const listGenerate = (arr2: any, arr1?: any,): ISuffledEmployee[] => {
     ];
   }
   // Generate the Secret Santa pairs
-  const secretSantaPairs:ISuffledEmployee[] = [];
+  const secretSantaPairs: ISuffledEmployee[] = [];
   for (let i = 0; i < arr2.length; i++) {
     const currentEmployee = arr2[i];
     const nextIndex = i === arr2.length - 1 ? 0 : i + 1;
@@ -61,26 +61,22 @@ export const listGenerate = (arr2: any, arr1?: any,): ISuffledEmployee[] => {
   });
   // If there are duplicate pairs, recursively generate new pairs
   if (hasDuplicatePairs || hasPrevDuplicatePairs) {
-    console.log("hasPrevDuplicatePairs=======>", hasPrevDuplicatePairs);
-    return listGenerate(arr2,arr1);
+    return listGenerate(arr2, arr1);
   }
-  console.log("array data-===>", secretSantaPairs);
+
   return secretSantaPairs;
 };
 
-
-export const getError = (prevList: any, emList:any) => {
-    let error = {flag: false, msg: ""}
-
-    if(!emList.length) {
-        error.flag = true
-        error.msg = "Please provide employee list before generating"
-        return error;
-    }
-    // if(!prevList) {
-    //     error.flag = true
-    //     error.msg = "Please provide previous year secret santa list list before generating"
-    //     return error;
-    // }
-
-}
+export const getError = (prevList: any, emList: any) => {
+  let error = { flag: false, msg: "" };
+  if (!emList.length) {
+    error.flag = true;
+    error.msg = "Please provide employee list before generating";
+    return error;
+  }
+  // if(!prevList) {
+  //     error.flag = true
+  //     error.msg = "Please provide previous year secret santa list list before generating"
+  //     return error;
+  // }
+};
